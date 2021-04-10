@@ -193,7 +193,7 @@ p {
   display: flex;
   justify-content: space-between;
 }
-.social-link a {
+.social-link {
   font-size: 1.75rem;
   color: var(--clr-grey-1);
   transition: var(--transition);
