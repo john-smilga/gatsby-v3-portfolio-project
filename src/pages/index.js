@@ -7,7 +7,7 @@ import Projects from "../components/Projects"
 import Seo from "../components/Seo"
 const IndexPage = ({ data }) => {
   const {
-    allStrapiProjects: { nodes: projects },
+    allStrapiProject: { nodes: projects },
   } = data
   return (
     <>
@@ -16,7 +16,7 @@ const IndexPage = ({ data }) => {
         <Hero />
         <Services />
         <Jobs />
-        <Projects projects={projects} title="featured projects" showLink />
+        <Projects title="featured projects" showLink projects={projects} />
       </main>
     </>
   )
@@ -24,25 +24,26 @@ const IndexPage = ({ data }) => {
 
 export const query = graphql`
   {
-    allStrapiProjects(filter: { featured: { eq: true } }) {
+    allStrapiProject(filter: { featured: { eq: true } }) {
       nodes {
-        image {
-          childImageSharp {
-            gatsbyImageData(layout: CONSTRAINED, placeholder: BLURRED)
-          }
-        }
         description
         featured
         github
         id
         slug
+        title
+        url
         stack {
           id
           title
         }
-        title
-        url
+        image {
+          childImageSharp {
+            gatsbyImageData(placeholder: BLURRED, layout: CONSTRAINED)
+          }
+        }
       }
+      totalCount
     }
   }
 `

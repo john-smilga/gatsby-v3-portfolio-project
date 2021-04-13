@@ -4,7 +4,7 @@ import Projects from "../components/Projects"
 import Seo from "../components/Seo"
 const ProjectsPage = ({
   data: {
-    allStrapiProjects: { nodes: projects },
+    allStrapiProject: { nodes: projects },
   },
 }) => {
   return (
@@ -12,7 +12,7 @@ const ProjectsPage = ({
       <Seo title="Projects" />
       <main>
         <section className="projects-page">
-          <Projects projects={projects} title="all projects" />
+          <Projects title="all projects" projects={projects} />
         </section>
       </main>
     </>
@@ -21,25 +21,26 @@ const ProjectsPage = ({
 
 export const query = graphql`
   {
-    allStrapiProjects {
+    allStrapiProject {
       nodes {
-        image {
-          childImageSharp {
-            gatsbyImageData(layout: CONSTRAINED, placeholder: BLURRED)
-          }
-        }
         description
         featured
         github
         id
         slug
+        title
+        url
         stack {
           id
           title
         }
-        title
-        url
+        image {
+          childImageSharp {
+            gatsbyImageData(placeholder: BLURRED, layout: CONSTRAINED)
+          }
+        }
       }
+      totalCount
     }
   }
 `

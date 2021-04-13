@@ -9,7 +9,7 @@ const About = ({ data }) => {
   } = data
   return (
     <>
-      <Seo title="about" />
+      <Seo title="About" />
       <section className="about-page">
         <div className="section-center about-center">
           <img src={image.publicURL} alt={title} className="about-img-svg" />

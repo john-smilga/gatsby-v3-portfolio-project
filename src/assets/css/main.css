@@ -475,6 +475,7 @@ Hero
   }
   .hero-img-svg {
     width: 100%;
+    height: 400px;
     position: relative;
     display: block;
     grid-row: 1/1;
